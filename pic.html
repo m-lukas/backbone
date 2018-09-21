@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+</head>
+<body>
+<h1>Picture</h1>
+
+
+<!--
+<input id="eventUploadPic" type="file">
+<button onclick="uploadPic()"> Upload File </button>
+-->
+
+<div id="filesubmit">
+  <input type="file" class="file-select" accept="image/*"/>
+  <button class="file-submit">SUBMIT</button>
+</div>
+
+
+
+
+<script src="https://www.gstatic.com/firebasejs/5.5.0/firebase.js"></script>
+<script>
+    // Initialize Firebase
+    var config = {
+        apiKey: "AIzaSyC6ZU6XjLvKKO7suJqTSlor5iN-nLCoTp0",
+        authDomain: "project23-5fce5.firebaseapp.com",
+        databaseURL: "https://project23-5fce5.firebaseio.com",
+        projectId: "project23-5fce5",
+        storageBucket: "project23-5fce5.appspot.com",
+        messagingSenderId: "842953004589"
+    };
+    firebase.initializeApp(config);
+    const storageService = firebase.storage();
+    const storageRef = storageService.ref();
+
+
+
+</script>
+<script src="pic.js"></script>
+</body>
+</html>

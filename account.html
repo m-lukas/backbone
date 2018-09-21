@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Create Account</title>
+</head>
+<body>
+<h1>Create Account</h1>
+
+<input type="email" placeholder="Email..." id="email_field" />
+<input type="password" placeholder="Password..." id="password_field" />
+
+<button onclick="create()">Create Account</button>
+<br><a href="index.html">Login</a>
+
+
+<!-- Firebase Implementation -->
+<script src="https://www.gstatic.com/firebasejs/5.5.0/firebase.js"></script>
+<script>
+    // Initialize Firebase
+    var config = {
+        apiKey: "AIzaSyC6ZU6XjLvKKO7suJqTSlor5iN-nLCoTp0",
+        authDomain: "project23-5fce5.firebaseapp.com",
+        databaseURL: "https://project23-5fce5.firebaseio.com",
+        projectId: "project23-5fce5",
+        storageBucket: "project23-5fce5.appspot.com",
+        messagingSenderId: "842953004589"
+    };
+    firebase.initializeApp(config);
+</script>
+<script src="create.js"></script>
+</body>
+</html>

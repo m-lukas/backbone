@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+</head>
+<body>
+<h1>Login</h1>
+<!-- Login Tutorial https://www.youtube.com/watch?v=iKlWaUszxB4 -->
+
+<!-- Display this div if user is logged out -> Login -->
+<div id="login_div" class="main-div">
+    <input type="email" placeholder="Email..." id="email_field" />
+    <input type="password" placeholder="Password..." id="password_field" />
+
+    <button onclick="login()">Login to Account</button>
+
+  <br><a href="account.html">Create Account</a>
+</div>
+
+<!-- Display this div if user is logged in -> Logout  -->
+<div id="user_div" class="loggedin-div">
+    <h3>Welcome</h3>
+    <p id="user_para">Welcome to Firebase web login Example. You're currently logged in.</p>
+    <a href="eventlist.html">Event list </a>
+    <br>
+    <a href="pic.html">Picutre </a>
+    <br>
+    <a href="voting.html">Voting </a>
+<!-- Event Database Tutorial https://www.youtube.com/watch?v=F6UWb9FNnj4&t=6s -->
+    <h2>Event erstellen</h2>
+    <textarea id="eventName" placeholder="Event Name..."></textarea>
+    <textarea id="eventText" placeholder="Event Text..."></textarea>
+    <textarea id="eventPic" placeholder="Event Picture..."></textarea>
+    <textarea id="eventLocation" placeholder="Event location..."></textarea>
+    <textarea id="eventStartT" placeholder="Event Start..."></textarea>
+    <textarea id="eventEndT" placeholder="Event End..."></textarea>
+
+    <br>
+    <button id="submitBtn" onclick="submitClick()"> Send </button>
+
+    <br>
+    <button onclick="logout()">Logout</button>
+</div>
+
+<!-- Firebase Implementation -->
+<script src="https://www.gstatic.com/firebasejs/5.5.0/firebase.js"></script>
+<script>
+    // Initialize Firebase
+    var config = {
+        apiKey: "AIzaSyC6ZU6XjLvKKO7suJqTSlor5iN-nLCoTp0",
+        authDomain: "project23-5fce5.firebaseapp.com",
+        databaseURL: "https://project23-5fce5.firebaseio.com",
+        projectId: "project23-5fce5",
+        storageBucket: "project23-5fce5.appspot.com",
+        messagingSenderId: "842953004589"
+    };
+    firebase.initializeApp(config);
+</script>
+<script src="login.js"></script>
+<script src="event.js"></script>
+</body>
+</html>

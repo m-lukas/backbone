@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+</head>
+<body>
+<!-- Tutorial 1 https://www.youtube.com/watch?v=m3TMPyQNAVs -->
+<!-- Tutorial 2 https://www.youtube.com/watch?v=nUUPedePJ4o -->
+<!-- Event list -->
+
+  <h2 id="heading">If you still see this after 3 seconds the database is not working call Lukas for help</h2><br>
+  <h1>All events</h1>
+  <table>
+    <thead>
+      <tr>
+        <td>Name</td>
+        <td>Text</td>
+        <td>Location</td>
+        <td>Picture</td>
+        <td>Start</td>
+        <td>End</td>
+        <td>Up</td>
+        <td>Down</td>
+        <td>Points</td>
+        <td>Key</td>
+      </tr>
+    </thead>
+    <tbody id="table">
+
+    </tbody>
+  </table>
+
+<button id="whatisX" onclick="whatispoints()">Whats is points?</button>
+
+<!-- Firebase Implementation -->
+<script src="https://www.gstatic.com/firebasejs/5.5.0/firebase.js"></script>
+<script>
+    // Initialize Firebase
+    var config = {
+        apiKey: "AIzaSyC6ZU6XjLvKKO7suJqTSlor5iN-nLCoTp0",
+        authDomain: "project23-5fce5.firebaseapp.com",
+        databaseURL: "https://project23-5fce5.firebaseio.com",
+        projectId: "project23-5fce5",
+        storageBucket: "project23-5fce5.appspot.com",
+        messagingSenderId: "842953004589"
+    };
+    firebase.initializeApp(config);
+</script>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.js" type="text/javascript"></script>
+<script src="event-list.js"></script>
+</body>
+</html>

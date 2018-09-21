@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+</head>
+<body>
+
+  <button id="upvoteBtn" onclick="upvote()"> Upvote </button>
+  <br>
+  <p id=point>0</p>
+  <br>
+  <button id="downvoteBtn" onclick="downvote()"> Downvote </button>
+
+
+
+
+
+
+  <script src="https://www.gstatic.com/firebasejs/5.5.0/firebase.js"></script>
+  <script>
+      // Initialize Firebase
+      var config = {
+          apiKey: "AIzaSyC6ZU6XjLvKKO7suJqTSlor5iN-nLCoTp0",
+          authDomain: "project23-5fce5.firebaseapp.com",
+          databaseURL: "https://project23-5fce5.firebaseio.com",
+          projectId: "project23-5fce5",
+          storageBucket: "project23-5fce5.appspot.com",
+          messagingSenderId: "842953004589"
+      };
+      firebase.initializeApp(config);
+  </script>
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.js" type="text/javascript"></script>
+  <script src="voting.js"></script>
+  </body>
+  </html>
