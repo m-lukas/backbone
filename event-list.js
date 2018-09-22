@@ -36,8 +36,6 @@ rootRef.once("value", function(snap) {
 
 // Funtcion gets called out of html upvote(key) key is not defined
 
-/* points is not defined */
-var points = document.getElementById("points");
 
 //Voting
 function upvote(){
