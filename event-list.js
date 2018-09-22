@@ -12,6 +12,8 @@ var firebaseEventRef = firebase.database().ref("heading");
 
 var rootRef = firebase.database().ref().child("events");
 
+var keypoints;
+
 // Event List
 rootRef.once("value", function(snap) {
    snap.forEach(function(data) {
@@ -21,32 +23,38 @@ rootRef.once("value", function(snap) {
       var pic = data.val().pic;
       var startt = data.val().startt;
       var endt = data.val().endt;
+
       var points = data.val().points;
       var key = data.key;
 
-      $("#table").append("<tr><td>" + name + "</td><td>" + text + "</td><td>" + location + "</td><td>" + pic + "</td><td>" + startt + "</td><td>" + endt + "</td><td><button id='upvoteBtn' onclick='upvote(" + key + ")'> Upvote </button></td><td><button id='downvoteBtn' onclick='downvote(" + key + ")'> Downvote </button></td><td id='point'>" + points + "</td><td>" + key + "</td></tr>");
+//making an array to match key and points
+      keypoints = [key, points];
+
+      $("#table").append("<tr><td>" + name + "</td><td>" + text + "</td><td>" + location + "</td><td>" + pic + "</td><td>" + startt + "</td><td>" + endt + "</td><td><button id='upvoteBtn' onclick='upvote(" + keypoints + ")'> Upvote </button></td><td><button id='downvoteBtn' onclick='downvote(" + keypoints + ")'> Downvote </button></td><td id='point'>" + points + "</td></tr>");
     });
 });
 
-/* points is not defined */
+// Funtcion gets called out of html upvote(key) key is not defined
 
+/* points is not defined */
 var points = document.getElementById("points");
 
-
 //Voting
-function upvote(key) {
+function upvote(){
+  var key = keypoints[0];
+  var points = keypoints[1];
   var x = points;
   x = x + 1;
   points = x
-  console.log(key);
+
   var updates = {
       points: points,
       }
-    rootRef.child(key/*<-- adding real key here */).update(updates);
-    document.getElementById("point").innerHTML = points
+  rootRef.child(key).update(updates);
+  document.getElementById("point").innerHTML = points
   };
 
-function downvote(key) {
+function downvote(keypoints){
   var x = points;
   x = x - 1;
   points = x
