@@ -30,6 +30,21 @@ rootRef.once("value", function(snap) {
 //making an array to match key and points
       keypoints = [key, points];
 
+      var tableRow = document.createElement("tr");
+      // for all static tds     
+      var nameColumn = document.createElement("td");
+      nameColumn.innerHTML = name;
+      tableRow.append(nameColumn);
+      //...
+      
+      var upvoteButton = document.createElement("button");
+      upvoteButton.id = "upvoteBtn";
+      upvoteButton.setAttribute("data-key", key);
+      upvoteButton.setAttribute("data-points", points);
+      upvoteButton.onclick = function(event){ upvote(event) };
+      tableRow.append(upvoteButton);
+
+
       $("#table").append("<tr><td>" + name + "</td><td>" + text + "</td><td>" + location + "</td><td>" + pic + "</td><td>" + startt + "</td><td>" + endt + "</td><td><button id='upvoteBtn' onclick='upvote(" + keypoints + ")'> Upvote </button></td><td><button id='downvoteBtn' onclick='downvote(" + keypoints + ")'> Downvote </button></td><td id='point'>" + points + "</td></tr>");
     });
 });
@@ -38,8 +53,9 @@ rootRef.once("value", function(snap) {
 
 
 //Voting
-function upvote(){
-  var key = keypoints[0];
+function upvote(event){
+
+  var key = event.target.getAttribute("data.key");
   var points = keypoints[1];
   var x = points;
   x = x + 1;
